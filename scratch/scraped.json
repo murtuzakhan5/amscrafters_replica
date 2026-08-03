@@ -1,0 +1,128 @@
+{
+  "mobile-app": {
+    "title": "Custom Mobile Apps That Drive Growth",
+    "subtitle": "\"Transform your business with powerful, user-friendly mobile applications.\"",
+    "overview": "We create stunning mobile experiences that engage users, streamline operations, and deliver measurable results for your business across iOS and Android platforms.",
+    "features": [
+      {
+        "title": "Native iOS & Android Apps",
+        "desc": "High-performance applications built specifically for each platform using Swift, Kotlin, or React Native."
+      },
+      {
+        "title": "Cross-Platform Solutions",
+        "desc": "Single codebase applications that run seamlessly on both iOS and Android devices."
+      },
+      {
+        "title": "UI/UX Mobile Design",
+        "desc": "Intuitive, user-friendly interfaces designed specifically for mobile interactions and gestures."
+      },
+      {
+        "title": "App Integration",
+        "desc": "Seamless integration with existing systems, APIs, and third-party services."
+      }
+    ]
+  },
+  "crm-solutions": {
+    "title": "Smart CRM Systems For Business Growth",
+    "subtitle": "\"Transform customer relationships and drive sales with our custom CRM solutions.\"",
+    "overview": "We build comprehensive CRM systems that streamline your sales process, enhance customer service, and provide valuable insights to grow your business effectively.",
+    "features": [
+      {
+        "title": "Custom CRM Development",
+        "desc": "Tailored CRM solutions designed specifically for your business processes and workflow."
+      },
+      {
+        "title": "Sales Automation",
+        "desc": "Automate repetitive tasks to increase sales team productivity and efficiency."
+      },
+      {
+        "title": "Customer Analytics",
+        "desc": "Deep insights into customer behavior, preferences, and engagement patterns."
+      },
+      {
+        "title": "Integration & Migration",
+        "desc": "Seamlessly integrate with existing tools or migrate from legacy systems."
+      }
+    ]
+  },
+  "social-media-marketing": {
+    "title": "Social Media Marketing Experts Frequently Asked Questions",
+    "subtitle": "Transforming Businesses into Brands!",
+    "overview": "Boost your brand presence with our expert social media strategies and engagement techniques. We create customized campaigns that drive real results and business growth.",
+    "features": [
+      {
+        "title": "Social Media Excellence",
+        "desc": "Transforming Brands Digitally"
+      }
+    ]
+  },
+  "shopify": {
+    "title": "Professional Shopify Development",
+    "subtitle": "Transform Your E-commerce Vision into Reality!",
+    "overview": "Build high-converting, scalable Shopify stores that drive sales and grow your business. Our expert developers create stunning e-commerce solutions tailored to your unique needs.",
+    "features": [
+      {
+        "title": "Shopify Store Set-up",
+        "desc": "Our experts will build your Shopify store from scratch and make it up and running in no time."
+      },
+      {
+        "title": "Shopify Migration Services",
+        "desc": "Migrate your existing store to Shopify seamlessly with zero downtime and data preservation."
+      },
+      {
+        "title": "Shopify Integration Service",
+        "desc": "Integrate third-party apps, payment gateways, and shipping providers for enhanced functionality."
+      },
+      {
+        "title": "Shopify SEO",
+        "desc": "Optimize your store for search engines to increase visibility and drive organic traffic."
+      }
+    ]
+  },
+  "ecommerce": {
+    "title": "Advanced E-commerce Solutions",
+    "subtitle": "Transforming Businesses into Digital Success Stories!",
+    "overview": "Build high-converting, scalable e-commerce stores that drive sales and grow your business. Our expert developers create stunning online shopping experiences tailored to your unique needs.",
+    "features": [
+      {
+        "title": "E-Commerce Consulting Services",
+        "desc": "We provide various E-Commerce consulting services, including market research, competitor analysis, website analytics, and user experience design."
+      },
+      {
+        "title": "E-Commerce Development Services",
+        "desc": "We help you build a high-performance, user-friendly E-Commerce platform optimized for conversions and sales."
+      },
+      {
+        "title": "E-Commerce Testing Services",
+        "desc": "Ensure that your online store functions as it should be, we also offer E-Commerce testing to ensure flawless performance."
+      },
+      {
+        "title": "Magento",
+        "desc": "Magento is a powerful E-Commerce platform ideal for larger businesses with more complex requirements."
+      }
+    ]
+  },
+  "seo": {
+    "title": "Professional SEO Services Click Required Service To Create Your Own Package Transparent SEO Pricing Plans Complete Digital Solutions",
+    "subtitle": "Dominate search engine rankings with our comprehensive SEO strategies. We help businesses increase organic traffic, generate quality leads, and drive sustainable growth.",
+    "overview": "FOCUSING ON THE THINGS THAT MAKE IMPACT",
+    "features": [
+      {
+        "title": "I WANT TO CREATE A WEBSITE",
+        "desc": "Welcome to the first phase to create your online business or brand. Hit that button to continue."
+      },
+      {
+        "title": "I WANT TO INCREASE TRAFFIC",
+        "desc": "Here comes the best part in your business which organically increases authority of your brand."
+      },
+      {
+        "title": "I WANT MORE SALES & LEADS",
+        "desc": "Are you an established business? Boost your sales to achieve company's target, click to leave worries behind."
+      },
+      {
+        "title": "SEO ESSENTIALS",
+        "desc": "A flexible, low-risk solution for SEO growth - perfect for small businesses & start-ups."
+      }
+    ]
+  }
+}
