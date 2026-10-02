@@ -605,17 +605,21 @@
 .footer-top {
   width: 100%;
   overflow: hidden;
-  padding: 48px 24px 0;
+  padding: 40px 16px 0;
 }
 
 .footer-huge-text {
-  font-size: clamp(28px, 7vw, 112px);
-  font-weight: 700;
-  letter-spacing: -3px;
-  line-height: 0.9;
+  font-size: clamp(38px, 11.5vw, 120px);
+  font-weight: 800;
+  letter-spacing: -1px;
+  line-height: 1;
   white-space: nowrap;
   color: transparent;
-  -webkit-text-stroke: 1.5px rgba(49, 128, 178, 0.22);
+  -webkit-text-stroke: 1.5px rgba(49, 128, 178, 0.35);
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .footer-divider {

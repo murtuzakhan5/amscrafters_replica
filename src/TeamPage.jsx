@@ -120,7 +120,7 @@ export const TeamPage = () => {
         <div style={{ display: 'flex', flexWrap: 'wrap', maxWidth: '100%' }}>
           
           {/* Sidebar - Sticky on Desktop */}
-          <div style={{ flex: '1 1 400px', minWidth: '300px', padding: '80px 48px', borderRight: '1px solid var(--border)', position: 'sticky', top: '0', height: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+          <div className="story-sidebar-mobile" style={{ flex: '1 1 400px', minWidth: '300px', padding: '80px 48px', borderRight: '1px solid var(--border)', position: 'sticky', top: '0', height: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
             <div className="sp-badge-pill" style={{ marginBottom: '24px', alignSelf: 'flex-start' }}>
               <span className="sp-dot"></span>
               <span className="sp-badge-text">Collective Skills</span>

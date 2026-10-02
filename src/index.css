@@ -260,6 +260,14 @@ button {
   .story-sidebar-mobile {
     position: relative !important;
     height: auto !important;
-    min-height: 50vh !important;
+    min-height: 35vh !important;
+    padding: 40px 20px !important;
+  }
+  .careers-mobile-pad {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+  .careers-card-pad {
+    padding: 24px 20px !important;
   }
 }

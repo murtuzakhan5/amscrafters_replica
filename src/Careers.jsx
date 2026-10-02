@@ -52,16 +52,16 @@ export const Careers = () => {
       </div>
 
       {/* Why Join Us Section - Sticky Scroll */}
-      <div style={{ maxWidth: '1200px', margin: '0 auto 100px auto', padding: '0 40px' }}>
+      <div className="careers-mobile-pad" style={{ maxWidth: '1200px', margin: '0 auto 100px auto', padding: '0 40px' }}>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '60px', position: 'relative', alignItems: 'flex-start' }}>
           
           {/* Sticky Left Column */}
-          <div className="sticky-desktop" style={{ flex: '1', minWidth: '300px' }}>
+          <div className="sticky-desktop" style={{ flex: '1', minWidth: '280px' }}>
             <div className="sp-badge-pill" style={{ marginBottom: '24px' }}>
               <span className="sp-dot"></span>
               <span className="sp-badge-text">Life at AMS</span>
             </div>
-            <h2 style={{ fontSize: '48px', letterSpacing: '-1px', margin: '0 0 24px 0', lineHeight: 1.1 }}>
+            <h2 style={{ fontSize: 'clamp(32px, 4vw, 48px)', letterSpacing: '-1px', margin: '0 0 24px 0', lineHeight: 1.1 }}>
               Why Build <br />With Us?
             </h2>
             <p style={{ color: 'var(--muted)', fontSize: '18px', maxWidth: '400px', margin: 0, lineHeight: 1.6 }}>
@@ -70,14 +70,14 @@ export const Careers = () => {
           </div>
 
           {/* Scrolling Right Column */}
-          <div style={{ flex: '1.5', minWidth: '300px', display: 'flex', flexDirection: 'column', gap: '32px' }}>
+          <div style={{ flex: '1.5', minWidth: '280px', display: 'flex', flexDirection: 'column', gap: '32px' }}>
             {[
               { num: '01', title: 'Fast-Paced Growth', desc: 'Work on cutting-edge projects for global clients. We push boundaries, which means your skills will accelerate faster than anywhere else.' },
               { num: '02', title: 'Output Over Hours', desc: 'We care about the quality of your work, not how many hours you sit at a desk. Enjoy a flexible culture built on trust and autonomy.' },
               { num: '03', title: 'Collaborative Culture', desc: 'No egos. Just a team of passionate makers, designers, and developers supporting each other to build extraordinary digital experiences.' },
               { num: '04', title: 'Health & Wellness', desc: 'We believe you do your best work when you feel your best. We provide comprehensive benefits and genuine respect for your work-life balance.' }
             ].map((perk, i) => (
-              <div key={i} style={{ 
+              <div key={i} className="careers-card-pad" style={{ 
                 background: 'rgba(255,255,255,0.02)', 
                 border: '1px solid var(--border)', 
                 padding: '48px 40px', 
@@ -86,7 +86,7 @@ export const Careers = () => {
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.background = 'rgba(255,255,255,0.05)';
-                e.currentTarget.style.borderColor = 'rgba(255,106,0,0.3)';
+                e.currentTarget.style.borderColor = 'rgba(49,128,178,0.4)';
               }} 
               onMouseLeave={(e) => {
                 e.currentTarget.style.background = 'rgba(255,255,255,0.02)';
@@ -103,7 +103,7 @@ export const Careers = () => {
       </div>
 
       {/* Jobs List (Grid of Cards) */}
-      <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 40px' }}>
+      <div className="careers-mobile-pad" style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 40px' }}>
         <h2 style={{ fontSize: '32px', marginBottom: '40px', borderBottom: '1px solid var(--border)', paddingBottom: '16px', textAlign: 'center' }}>
           Open Positions
         </h2>
@@ -116,10 +116,11 @@ export const Careers = () => {
             <p style={{ margin: 0 }}>Check back later or send us your resume at hr@brandedgecreations.io</p>
           </div>
         ) : (
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: '24px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '24px' }}>
             {jobs.map((job) => (
               <div 
                 key={job.id} 
+                className="careers-card-pad"
                 onClick={() => { setSelectedJob(job); setIsApplying(false); }}
                 style={{ 
                   background: 'rgba(255,255,255,0.02)', 
@@ -134,7 +135,7 @@ export const Careers = () => {
                 onMouseEnter={(e) => {
                   e.currentTarget.style.transform = 'translateY(-8px)';
                   e.currentTarget.style.background = 'rgba(255,255,255,0.05)';
-                  e.currentTarget.style.borderColor = 'rgba(255,106,0,0.4)';
+                  e.currentTarget.style.borderColor = 'rgba(49,128,178,0.4)';
                 }} 
                 onMouseLeave={(e) => {
                   e.currentTarget.style.transform = 'translateY(0)';
@@ -146,8 +147,9 @@ export const Careers = () => {
                   <div style={{ background: 'rgba(49,128,178,0.1)', color: '#3180b2', padding: '6px 12px', borderRadius: '20px', fontSize: '12px', fontWeight: 600, letterSpacing: '0.05em' }}>
                     {job.type}
                   </div>
-                  <div style={{ color: 'var(--muted)', fontSize: '14px', display: 'flex', alignItems: 'center', gap: '4px' }}>
-                    📍 {job.location}
+                  <div style={{ color: 'var(--muted)', fontSize: '14px', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                    {job.location}
                   </div>
                 </div>
                 <h3 style={{ fontSize: '24px', margin: '0 0 16px 0', lineHeight: 1.3 }}>{job.title}</h3>
