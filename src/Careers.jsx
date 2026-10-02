@@ -56,7 +56,7 @@ export const Careers = () => {
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '60px', position: 'relative', alignItems: 'flex-start' }}>
           
           {/* Sticky Left Column */}
-          <div style={{ flex: '1', minWidth: '300px', position: 'sticky', top: '120px' }}>
+          <div className="sticky-desktop" style={{ flex: '1', minWidth: '300px' }}>
             <div className="sp-badge-pill" style={{ marginBottom: '24px' }}>
               <span className="sp-dot"></span>
               <span className="sp-badge-text">Life at AMS</span>
@@ -92,7 +92,7 @@ export const Careers = () => {
                 e.currentTarget.style.background = 'rgba(255,255,255,0.02)';
                 e.currentTarget.style.borderColor = 'var(--border)';
               }}>
-                <div style={{ color: '#ff6a00', fontSize: '16px', fontWeight: 'bold', marginBottom: '16px', letterSpacing: '0.1em' }}>{perk.num}</div>
+                <div style={{ color: '#3180b2', fontSize: '16px', fontWeight: 'bold', marginBottom: '16px', letterSpacing: '0.1em' }}>{perk.num}</div>
                 <h3 style={{ fontSize: '28px', marginBottom: '16px', fontWeight: 600, color: 'var(--fg)' }}>{perk.title}</h3>
                 <p style={{ color: 'var(--muted)', fontSize: '18px', lineHeight: 1.6, margin: 0 }}>{perk.desc}</p>
               </div>
@@ -143,7 +143,7 @@ export const Careers = () => {
                 }}
               >
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px' }}>
-                  <div style={{ background: 'rgba(255,106,0,0.1)', color: '#ff6a00', padding: '6px 12px', borderRadius: '20px', fontSize: '12px', fontWeight: 600, letterSpacing: '0.05em' }}>
+                  <div style={{ background: 'rgba(49,128,178,0.1)', color: '#3180b2', padding: '6px 12px', borderRadius: '20px', fontSize: '12px', fontWeight: 600, letterSpacing: '0.05em' }}>
                     {job.type}
                   </div>
                   <div style={{ color: 'var(--muted)', fontSize: '14px', display: 'flex', alignItems: 'center', gap: '4px' }}>
@@ -198,8 +198,14 @@ export const Careers = () => {
                 // Job Details View
                 <>
                   <div style={{ display: 'flex', gap: '16px', marginBottom: '24px' }}>
-                    <span style={{ background: 'rgba(255,255,255,0.05)', padding: '8px 16px', borderRadius: '8px', fontSize: '14px', color: 'var(--muted)' }}>💼 {selectedJob.type}</span>
-                    <span style={{ background: 'rgba(255,255,255,0.05)', padding: '8px 16px', borderRadius: '8px', fontSize: '14px', color: 'var(--muted)' }}>📍 {selectedJob.location}</span>
+                    <span style={{ background: 'rgba(255,255,255,0.05)', padding: '8px 16px', borderRadius: '8px', fontSize: '14px', color: 'var(--muted)', display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                      {selectedJob.type}
+                    </span>
+                    <span style={{ background: 'rgba(255,255,255,0.05)', padding: '8px 16px', borderRadius: '8px', fontSize: '14px', color: 'var(--muted)', display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                      {selectedJob.location}
+                    </span>
                   </div>
                   
                   <h4 style={{ fontSize: '18px', marginBottom: '12px', color: 'var(--fg)' }}>Job Description</h4>
@@ -305,7 +311,7 @@ export const Careers = () => {
               {!isApplying ? (
                 <button 
                   onClick={() => setIsApplying(true)}
-                  style={{ background: '#ff6a00', color: '#fff', border: 'none', padding: '12px 32px', borderRadius: '8px', fontWeight: 600, cursor: 'pointer' }}
+                  style={{ background: '#3180b2', color: '#fff', border: 'none', padding: '12px 32px', borderRadius: '8px', fontWeight: 600, cursor: 'pointer' }}
                 >
                   Apply Now
                 </button>
@@ -313,7 +319,7 @@ export const Careers = () => {
                 <button 
                   onClick={() => document.getElementById('submitApp').click()}
                   disabled={submitting}
-                  style={{ background: '#ff6a00', color: '#fff', border: 'none', padding: '12px 32px', borderRadius: '8px', fontWeight: 600, cursor: submitting ? 'not-allowed' : 'pointer', opacity: submitting ? 0.7 : 1 }}
+                  style={{ background: '#3180b2', color: '#fff', border: 'none', padding: '12px 32px', borderRadius: '8px', fontWeight: 600, cursor: submitting ? 'not-allowed' : 'pointer', opacity: submitting ? 0.7 : 1 }}
                 >
                   {submitting ? 'Submitting...' : 'Submit Application'}
                 </button>

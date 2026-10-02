@@ -43,7 +43,7 @@ export const StoryPage = () => {
         <div style={{ display: 'flex', flexWrap: 'wrap', maxWidth: '100%' }}>
           
           {/* Sidebar - Sticky on Desktop */}
-          <div style={{ flex: '1 1 400px', minWidth: '300px', padding: '80px 48px', borderRight: '1px solid var(--border)', position: 'sticky', top: '0', height: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+          <div className="story-sidebar-mobile" style={{ flex: '1 1 400px', minWidth: '300px', padding: '80px 48px', borderRight: '1px solid var(--border)', position: 'sticky', top: '0', height: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
             <div className="sp-badge-pill" style={{ marginBottom: '24px', alignSelf: 'flex-start' }}>
               <span className="sp-dot"></span>
               <span className="sp-badge-text">Foundation</span>
@@ -59,9 +59,9 @@ export const StoryPage = () => {
           {/* Content Cards - Scrolling */}
           <div style={{ flex: '2 1 600px', minWidth: '300px', padding: '80px 40px', display: 'flex', flexDirection: 'column', gap: '24px' }}>
             {[
-              { id: '01', icon: '🎯', title: 'Our Mission', desc: 'To empower businesses with innovative digital solutions that drive growth and success in the online world.' },
-              { id: '02', icon: '👁️', title: 'Our Vision', desc: 'To be the leading digital agency recognized for transforming businesses through cutting-edge technology.' },
-              { id: '03', icon: '🤝', title: 'Our Values', desc: 'Integrity, innovation, and client success are at the core of everything we do.' }
+              { id: '01', icon: <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#3180b2" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>, title: 'Our Mission', desc: 'To empower businesses with innovative digital solutions that drive growth and success in the online world.' },
+              { id: '02', icon: <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#3180b2" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path><circle cx="12" cy="12" r="3"></circle></svg>, title: 'Our Vision', desc: 'To be the leading digital agency recognized for transforming businesses through cutting-edge technology.' },
+              { id: '03', icon: <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#3180b2" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>, title: 'Our Values', desc: 'Integrity, innovation, and client success are at the core of everything we do.' }
             ].map((item, idx) => (
               <div key={idx} style={{ border: '1px solid var(--border)', background: 'var(--surface)', padding: 'clamp(32px,4vw,48px)', display: 'flex', flexDirection: 'column', gap: '24px', position: 'relative', overflow: 'hidden' }}>
                 <div style={{ position: 'absolute', top: '-50px', right: '-50px', width: '150px', height: '150px', background: 'radial-gradient(circle, rgba(255,106,0,0.1) 0%, transparent 70%)', borderRadius: '50%' }}></div>
@@ -117,7 +117,7 @@ export const StoryPage = () => {
             </div>
           </div>
           
-          <div style={{ flex: '1 1 400px', background: 'var(--surface)', border: '1px solid var(--border)', padding: '50px', position: 'relative', overflow: 'hidden', borderRadius: '0' }}>
+          <div className="story-sidebar-mobile" style={{ flex: '1 1 400px', background: 'var(--surface)', border: '1px solid var(--border)', padding: '50px', position: 'relative', overflow: 'hidden', borderRadius: '0' }}>
             <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '4px', background: 'var(--gradient-primary)' }}></div>
             <h3 style={{ fontSize: '28px', marginBottom: '20px', letterSpacing: '-0.5px' }}>
               Digital Excellence Since 2020
@@ -153,12 +153,12 @@ export const StoryPage = () => {
           
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '2px', background: 'var(--border)', border: '1px solid var(--border)' }}>
             {[
-              { icon: '💡', title: 'Innovative Solutions', desc: 'We leverage cutting-edge technology to deliver forward-thinking digital solutions.' },
-              { icon: '👥', title: 'Expert Team', desc: 'Our skilled professionals bring years of experience and diverse expertise.' },
-              { icon: '🛡️', title: '24/7 Support', desc: 'We provide round-the-clock support to ensure your business runs smoothly.' },
-              { icon: '⚡', title: 'Fast Delivery', desc: 'Quick turnaround times without compromising on quality.' },
-              { icon: '🎨', title: 'Creative Design', desc: 'Unique and engaging designs that capture your brand essence.' },
-              { icon: '📈', title: 'Proven Results', desc: 'Track record of delivering measurable business growth.' }
+              { icon: <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#3180b2" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.9 1.2 1.5 1.5 2.5"></path><path d="M9 18h6"></path><path d="M10 22h4"></path></svg>, title: 'Innovative Solutions', desc: 'We leverage cutting-edge technology to deliver forward-thinking digital solutions.' },
+              { icon: <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#3180b2" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>, title: 'Expert Team', desc: 'Our skilled professionals bring years of experience and diverse expertise.' },
+              { icon: <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#3180b2" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"></path></svg>, title: '24/7 Support', desc: 'We provide round-the-clock support to ensure your business runs smoothly.' },
+              { icon: <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#3180b2" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>, title: 'Fast Delivery', desc: 'Quick turnaround times without compromising on quality.' },
+              { icon: <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#3180b2" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m10.82 2.16 2.36 2.36-11 11-2.36-2.36 11-11Z"></path><path d="m4.9 14.1 4.9 4.9"></path><path d="M16.54 8.46a3.3 3.3 0 0 1 4.6 4.6L20 14l-4.6-4.6 1.14-1.14Z"></path></svg>, title: 'Creative Design', desc: 'Unique and engaging designs that capture your brand essence.' },
+              { icon: <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#3180b2" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 3v18h18"></path><path d="m19 9-5 5-4-4-3 3"></path></svg>, title: 'Proven Results', desc: 'Track record of delivering measurable business growth.' }
             ].map((feature, idx) => (
               <div key={idx} style={{ padding: '48px 40px', background: 'var(--bg)', display: 'flex', flexDirection: 'column', gap: '20px', transition: 'background 0.3s ease' }} className="sp-hover-surface">
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>

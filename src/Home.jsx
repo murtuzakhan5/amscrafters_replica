@@ -30,12 +30,11 @@ const Hero = () => {
         <h1 className="hero-title">
           Building Brands That 
           <span className="word-carousel">
-            <span className="word-carousel-inner">
-              <span className="word-slide" style={{ backgroundImage: 'linear-gradient(135deg, #3180b2, #1d5375)' }}>Stand Out</span>
-              <span className="word-slide" style={{ backgroundImage: 'linear-gradient(135deg, #4fa3d8, #2b6c96)' }}>Win Big</span>
-              <span className="word-slide" style={{ backgroundImage: 'linear-gradient(135deg, #276994, #133a54)' }}>Scale Fast</span>
-              <span className="word-slide" style={{ backgroundImage: 'linear-gradient(135deg, #3180b2, #1d5375)' }}>Stand Out</span>
-            </span>
+            {/* Dummy element for container sizing */}
+            <span style={{ visibility: 'hidden', whiteSpace: 'nowrap' }}>Stand Out</span>
+            <span className="word-fade word-fade-1" style={{ backgroundImage: 'linear-gradient(135deg, #3180b2, #1d5375)' }}>Stand Out</span>
+            <span className="word-fade word-fade-2" style={{ backgroundImage: 'linear-gradient(135deg, #4fa3d8, #2b6c96)' }}>Win Big</span>
+            <span className="word-fade word-fade-3" style={{ backgroundImage: 'linear-gradient(135deg, #276994, #133a54)' }}>Scale Fast</span>
           </span>
         </h1>
         

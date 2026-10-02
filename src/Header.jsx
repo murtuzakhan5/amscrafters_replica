@@ -91,6 +91,11 @@ export const Header = () => {
                     </Link>
                   ))}
                 </div>
+                <div style={{ padding: '16px', borderTop: '1px solid rgba(255,255,255,0.05)', textAlign: 'center' }}>
+                  <Link to="/services" onClick={() => { setServicesMenuOpen(false); setMobileMenuOpen(false); }} style={{ color: 'var(--fg)', textDecoration: 'none', fontSize: '14px', fontWeight: 600, display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+                    View All Services <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                  </Link>
+                </div>
               </div>
             )}
           </div>

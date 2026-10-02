@@ -212,9 +212,7 @@
 }
 
 .word-carousel {
-  display: inline-flex;
-  height: 1.2em;
-  overflow: hidden;
+  display: inline-block;
   vertical-align: middle;
   border-radius: 999px;
   padding: 0 20px;
@@ -223,31 +221,33 @@
   margin-left: 12px;
   position: relative;
   top: -4px;
+  text-align: center;
+  min-width: 140px;
 }
 
-.word-carousel-inner {
-  display: flex;
-  flex-direction: column;
-  animation: flip-words 8s cubic-bezier(0.76, 0, 0.24, 1) infinite;
-}
-
-.word-slide {
-  height: 1.2em;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.word-fade {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
   white-space: nowrap;
   font-weight: 700;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
+  opacity: 0;
+  animation: fade-words 9s infinite;
 }
 
-@keyframes flip-words {
-  0%, 20% { transform: translateY(0); }
-  25%, 45% { transform: translateY(-25%); }
-  50%, 70% { transform: translateY(-50%); }
-  75%, 100% { transform: translateY(-75%); }
+.word-fade-1 { animation-delay: 0s; }
+.word-fade-2 { animation-delay: 3s; }
+.word-fade-3 { animation-delay: 6s; }
+
+@keyframes fade-words {
+  0%, 5% { opacity: 0; transform: translate(-50%, -40%); }
+  10%, 28% { opacity: 1; transform: translate(-50%, -50%); }
+  32%, 100% { opacity: 0; transform: translate(-50%, -60%); }
 }
 
 .hero-subtitle {
