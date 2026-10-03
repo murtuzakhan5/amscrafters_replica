@@ -152,7 +152,7 @@ export const Consultation = () => {
                 type="submit" 
                 disabled={submitting}
                 className="btn-primary" 
-                style={{ width: '100%', justifyContent: 'center', padding: '16px', fontSize: '16px', marginTop: '16px', border: 'none', cursor: submitting ? 'not-allowed' : 'pointer', opacity: submitting ? 0.7 : 1 }}
+                style={{ width: 'auto', minWidth: '220px', maxWidth: '340px', alignSelf: 'center', justifyContent: 'center', padding: '16px 36px', fontSize: '15px', marginTop: '16px', border: 'none', cursor: submitting ? 'not-allowed' : 'pointer', opacity: submitting ? 0.7 : 1 }}
               >
                 {submitting ? 'Submitting Request...' : 'Schedule Consultation'}
                 <svg width="18" height="18" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="white" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"></path></svg>

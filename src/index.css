@@ -271,3 +271,90 @@ button {
     padding: 24px 20px !important;
   }
 }
+
+/* --- Global Premium Button Hover & Micro Animations --- */
+.btn-primary, 
+.sp-btn-primary, 
+.btn-secondary, 
+.sp-btn-secondary, 
+.btn-outline,
+button[type="submit"] {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), background 0.35s ease, border-color 0.35s ease !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary:hover, 
+.sp-btn-primary:hover,
+button[type="submit"]:hover {
+  transform: translateY(-3px) scale(1.02) !important;
+  box-shadow: 0 12px 32px rgba(49, 128, 178, 0.55) !important;
+}
+
+.btn-secondary:hover, 
+.sp-btn-secondary:hover, 
+.btn-outline:hover {
+  transform: translateY(-3px) scale(1.02) !important;
+  box-shadow: 0 10px 28px rgba(49, 128, 178, 0.25) !important;
+}
+
+.btn-primary:active, 
+.sp-btn-primary:active, 
+.btn-secondary:active, 
+.sp-btn-secondary:active, 
+.btn-outline:active,
+button[type="submit"]:active {
+  transform: translateY(-1px) scale(0.98) !important;
+}
+
+/* Arrow Slide Animation inside Buttons on Hover */
+.btn-primary svg, 
+.sp-btn-primary svg, 
+.btn-secondary svg, 
+.sp-btn-secondary svg, 
+.btn-outline svg,
+button svg {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.btn-primary:hover svg, 
+.sp-btn-primary:hover svg, 
+.btn-secondary:hover svg, 
+.sp-btn-secondary:hover svg, 
+.btn-outline:hover svg,
+button:hover svg {
+  transform: translateX(4px) !important;
+}
+
+/* --- Theme Toggle & Light Theme Variables --- */
+[data-theme="light"] {
+  --bg: #f8fafc;
+  --surface: #ffffff;
+  --fg: #0f172a;
+  --muted: #64748b;
+  --border: rgba(0, 0, 0, 0.1);
+  --nav-bg: rgba(255, 255, 255, 0.88);
+}
+
+.theme-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--fg);
+  cursor: pointer;
+  margin-right: 6px;
+  transition: all 0.25s ease;
+  padding: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.theme-toggle-btn:hover {
+  transform: scale(1.1) !important;
+  border-color: #3180b2;
+  box-shadow: 0 4px 14px rgba(49, 128, 178, 0.3) !important;
+}

@@ -51,8 +51,8 @@ export const PortfolioPage = () => {
       <div className="sp-wrapper" style={{ minHeight: '100vh', paddingBottom: '100px' }}>
       
       {/* Hero Section */}
-      <div style={{ paddingTop: '160px', paddingBottom: '80px', textAlign: 'center', position: 'relative' }}>
-        <div style={{ position: 'absolute', top: '0', left: '50%', transform: 'translateX(-50%)', width: '800px', height: '600px', background: 'radial-gradient(circle, rgba(255,106,0,0.08) 0%, transparent 60%)', pointerEvents: 'none' }}></div>
+      <div style={{ paddingTop: '160px', paddingBottom: '80px', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
+        <div style={{ position: 'absolute', top: '0', left: '50%', transform: 'translateX(-50%)', width: '100%', maxWidth: '800px', height: '600px', background: 'radial-gradient(circle, rgba(49,128,178,0.1) 0%, transparent 60%)', pointerEvents: 'none' }}></div>
         <div className="sp-badge-pill" style={{ margin: '0 auto 24px' }}>
           <span className="sp-dot"></span>
           <span className="sp-badge-text">Our Projects</span>
@@ -60,22 +60,22 @@ export const PortfolioPage = () => {
         <h1 style={{ fontSize: 'clamp(40px, 6vw, 72px)', margin: '0 0 24px 0', letterSpacing: '-2px' }}>
           Work we're <span className="sp-text-gradient">proud of</span>
         </h1>
-        <p style={{ color: 'var(--muted)', fontSize: '18px', maxWidth: '700px', margin: '0 auto', lineHeight: 1.6 }}>
+        <p style={{ color: 'var(--muted)', fontSize: '18px', maxWidth: '700px', margin: '0 auto', lineHeight: 1.6, padding: '0 20px' }}>
           We've had the privilege of partnering with ambitious businesses across industries — helping them build brands, launch digital products, and grow their presence online. Each project here represents real collaboration, real challenges, and real results. These are just a few of the stories we've been part of.
         </p>
       </div>
 
       {/* Stats Section */}
       <section style={{ borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)', background: 'var(--surface)' }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))' }}>
           {[
             { value: '50+', label: 'Projects' },
             { value: '8', label: 'Services' },
             { value: '98%', label: 'Satisfaction' },
             { value: '3x', label: 'Avg. Growth' }
           ].map((stat, i) => (
-            <div key={i} style={{ padding: '40px 32px', borderRight: '1px solid var(--border)', display: 'flex', flexDirection: 'column', gap: '8px', textAlign: 'center' }}>
-              <span style={{ fontSize: 'clamp(38px,4.5vw,62px)', fontWeight: 800, color: 'transparent', WebkitTextStroke: '1px rgba(255,255,255,0.8)', letterSpacing: '-2px' }}>{stat.value}</span>
+            <div key={i} style={{ padding: '32px 20px', borderRight: '1px solid var(--border)', display: 'flex', flexDirection: 'column', gap: '8px', textAlign: 'center' }}>
+              <span style={{ fontSize: 'clamp(32px,4vw,56px)', fontWeight: 800, color: 'var(--fg)', letterSpacing: '-2px' }}>{stat.value}</span>
               <span style={{ fontSize: '12px', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--muted)' }}>{stat.label}</span>
             </div>
           ))}
@@ -83,13 +83,13 @@ export const PortfolioPage = () => {
       </section>
 
       {/* Infinite Marquee Tags */}
-      <div style={{ overflow: 'hidden', padding: '30px 0', borderBottom: '1px solid var(--border)', background: 'var(--bg)' }}>
+      <div style={{ overflow: 'hidden', padding: '24px 0', borderBottom: '1px solid var(--border)', background: 'var(--bg)' }}>
         <div style={{ display: 'flex', whiteSpace: 'nowrap', animation: 'spMoveLeft 20s linear infinite' }}>
           {[...Array(3)].map((_, i) => (
             <React.Fragment key={i}>
               {['Branding', 'Web Design', 'E-Commerce', 'UI/UX', 'Identity', 'Digital Marketing', 'Development', 'Strategy'].map((tag, idx) => (
-                <span key={idx} style={{ fontSize: '24px', fontWeight: 700, margin: '0 40px', color: 'var(--muted)', textTransform: 'uppercase' }}>
-                  {tag} <span style={{ color: '#ff6a00', marginLeft: '40px' }}>•</span>
+                <span key={idx} style={{ fontSize: '20px', fontWeight: 700, margin: '0 24px', color: 'var(--muted)', textTransform: 'uppercase' }}>
+                  {tag} <span style={{ color: '#3180b2', marginLeft: '24px' }}>•</span>
                 </span>
               ))}
             </React.Fragment>
@@ -98,14 +98,14 @@ export const PortfolioPage = () => {
       </div>
 
       {/* Clients 3D Carousel Section */}
-      <div style={{ padding: '80px 0', borderBottom: '1px solid var(--border)', overflow: 'hidden' }}>
-        <div style={{ textAlign: 'center', marginBottom: '40px' }}>
+      <div style={{ padding: '60px 0', borderBottom: '1px solid var(--border)', overflow: 'hidden' }}>
+        <div style={{ textAlign: 'center', marginBottom: '32px', padding: '0 20px' }}>
           <h2 style={{ fontSize: '32px', margin: '0 0 12px 0' }}>Trusted by</h2>
           <p style={{ color: 'var(--muted)', margin: 0 }}>Brands that chose us to bring their vision to life.</p>
         </div>
         
         {clients.length > 0 ? (
-          <div className="carousel-container" style={{ flexDirection: 'column', gap: '30px' }}>
+          <div className="carousel-container" style={{ flexDirection: 'column', gap: '24px' }}>
             <div className="carousel-badge">
               <h3>50+</h3>
               <p>Successful Brand Projects</p>
@@ -137,8 +137,8 @@ export const PortfolioPage = () => {
       </div>
 
       {/* Tabs */}
-      <div style={{ maxWidth: '1200px', margin: '80px auto 40px', padding: '0 40px' }}>
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', justifyContent: 'center' }}>
+      <div className="careers-mobile-pad" style={{ maxWidth: '1200px', margin: '60px auto 32px', padding: '0 40px' }}>
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', justifyContent: 'center' }}>
           {categories.map(cat => (
             <button
               key={cat}
@@ -147,9 +147,9 @@ export const PortfolioPage = () => {
                 background: activeTab === cat ? 'var(--fg)' : 'rgba(255,255,255,0.03)',
                 color: activeTab === cat ? 'var(--bg)' : 'var(--muted)',
                 border: `1px solid ${activeTab === cat ? 'transparent' : 'var(--border)'}`,
-                padding: '10px 24px',
+                padding: '8px 20px',
                 borderRadius: '99px',
-                fontSize: '14px',
+                fontSize: '13px',
                 fontWeight: 600,
                 cursor: 'pointer',
                 transition: 'all 0.2s ease'
@@ -162,13 +162,13 @@ export const PortfolioPage = () => {
       </div>
 
       {/* Grid */}
-      <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 40px' }}>
+      <div className="careers-mobile-pad" style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 40px' }}>
         {loading ? (
-          <div style={{ textAlign: 'center', padding: '100px 0', color: 'var(--muted)' }}>Loading projects...</div>
+          <div style={{ textAlign: 'center', padding: '80px 0', color: 'var(--muted)' }}>Loading projects...</div>
         ) : filteredProjects.length === 0 ? (
-          <div style={{ textAlign: 'center', padding: '100px 0', color: 'var(--muted)' }}>No projects found in this category.</div>
+          <div style={{ textAlign: 'center', padding: '80px 0', color: 'var(--muted)' }}>No projects found in this category.</div>
         ) : (
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(380px, 1fr))', gap: '40px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '28px' }}>
             {filteredProjects.map((project) => (
               <div 
                 key={project.id} 
@@ -179,9 +179,9 @@ export const PortfolioPage = () => {
                   borderRadius: '16px', 
                   overflow: 'hidden', 
                   cursor: 'pointer', 
-                  background: '#0a0a0a', 
-                  border: '1px solid rgba(255,255,255,0.05)',
-                  height: '420px', // Fixed height for uniformity
+                  background: 'var(--surface)', 
+                  border: '1px solid var(--border)',
+                  height: '420px', 
                   display: 'flex',
                   flexDirection: 'column'
                 }}
@@ -198,9 +198,9 @@ export const PortfolioPage = () => {
                   ) : project.type === 'marketing' ? (
                     <div style={{ width: '100%', height: '100%', position: 'relative' }}>
                       <img src={project.thumbnail || 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop'} style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: 0.6 }} />
-                      <div style={{ position: 'absolute', top: '40%', left: '50%', transform: 'translate(-50%, -50%)', background: 'rgba(255,255,255,0.1)', backdropFilter: 'blur(10px)', border: '1px solid rgba(255,255,255,0.2)', padding: '20px', borderRadius: '12px', textAlign: 'center', width: '80%' }}>
-                          <div style={{ fontSize: '12px', textTransform: 'uppercase', letterSpacing: '0.1em', color: '#ff6a00', marginBottom: '8px' }}>Campaign Stats</div>
-                          <div style={{ fontSize: '24px', fontWeight: 800 }}>{project.metrics?.roas} ROAS</div>
+                      <div style={{ position: 'absolute', top: '40%', left: '50%', transform: 'translate(-50%, -50%)', background: 'rgba(255,255,255,0.1)', backdropFilter: 'blur(10px)', border: '1px solid rgba(255,255,255,0.2)', padding: '16px', borderRadius: '12px', textAlign: 'center', width: '80%' }}>
+                          <div style={{ fontSize: '11px', textTransform: 'uppercase', letterSpacing: '0.1em', color: '#3180b2', marginBottom: '6px' }}>Campaign Stats</div>
+                          <div style={{ fontSize: '22px', fontWeight: 800 }}>{project.metrics?.roas} ROAS</div>
                       </div>
                     </div>
                   ) : (
@@ -218,11 +218,11 @@ export const PortfolioPage = () => {
                 <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.6) 40%, rgba(0,0,0,0.2) 100%)', zIndex: 1, pointerEvents: 'none' }}></div>
                 
                 {/* Content Area (Floating at bottom) */}
-                <div style={{ position: 'relative', zIndex: 2, marginTop: 'auto', padding: '32px 24px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                <div style={{ position: 'relative', zIndex: 2, marginTop: 'auto', padding: '24px 20px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
                   
                   {/* Top row: Category + Live Link */}
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '4px' }}>
-                    <span style={{ fontSize: '11px', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.15em', color: '#ff6a00' }}>
+                    <span style={{ fontSize: '11px', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.15em', color: '#3180b2' }}>
                       {project.category} • {project.client}
                     </span>
                     

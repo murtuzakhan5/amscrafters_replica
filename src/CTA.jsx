@@ -1,5 +1,6 @@
 import React from 'react';
 import './components.css';
+import { CountUp } from './CountUp';
 
 export const CTA = () => {
   return (
@@ -23,12 +24,12 @@ export const CTA = () => {
         <div className="cta-right">
           <div className="cta-stats">
             <div className="cta-stat">
-              <p className="cta-stat-num">50+</p>
+              <p className="cta-stat-num"><CountUp end={50} suffix="+" /></p>
               <p className="cta-stat-label">Brands Launched</p>
             </div>
             <div className="cta-stat-divider"></div>
             <div className="cta-stat">
-              <p className="cta-stat-num">98%</p>
+              <p className="cta-stat-num"><CountUp end={98} suffix="%" /></p>
               <p className="cta-stat-label">Client Retention</p>
             </div>
           </div>
