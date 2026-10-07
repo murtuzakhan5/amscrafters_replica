@@ -16,6 +16,7 @@ import { Careers } from './Careers';
 import { ServicesPage } from './ServicesPage';
 import { CustomCursor } from './CustomCursor';
 import { Consultation } from './Consultation';
+import { Packages } from './Packages';
 
 // Admin Imports
 import { AdminLayout } from './admin/AdminLayout';
@@ -51,6 +52,7 @@ function App() {
           <Route path="/portfolio/:id" element={<ProjectDetailPage />} />
           <Route path="/careers" element={<Careers />} />
           <Route path="/consultation" element={<Consultation />} />
+          <Route path="/packages" element={<Packages />} />
           
           {/* Admin Login (No Layout) */}
           <Route path="/admin/login" element={<AdminLogin />} />

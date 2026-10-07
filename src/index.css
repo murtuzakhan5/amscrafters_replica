@@ -264,11 +264,22 @@ button {
     padding: 40px 20px !important;
   }
   .careers-mobile-pad {
-    padding-left: 20px !important;
-    padding-right: 20px !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
   }
   .careers-card-pad {
-    padding: 24px 20px !important;
+    padding: 24px 16px !important;
+  }
+  .consultation-hero-pad {
+    padding: 100px 16px 32px 16px !important;
+  }
+  .consultation-form-box {
+    padding: 24px 16px !important;
+    border-radius: 16px !important;
+  }
+  .consultation-form-row {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
   }
 }
 

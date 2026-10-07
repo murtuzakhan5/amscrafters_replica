@@ -112,6 +112,7 @@ export const Header = () => {
           
           <Link to="/team" className={`nav-link ${location.pathname === '/team' ? 'active' : ''}`}>Our Team</Link>
           <Link to="/portfolio" className={`nav-link ${location.pathname === '/portfolio' ? 'active' : ''}`}>Portfolio</Link>
+          <Link to="/packages" className={`nav-link ${location.pathname === '/packages' ? 'active' : ''}`}>Packages</Link>
           <Link to="/careers" className={`nav-link ${location.pathname === '/careers' ? 'active' : ''}`}>Careers</Link>
           <Link to="/contact" className={`nav-link ${location.pathname === '/contact' ? 'active' : ''}`}>Contact</Link>
         </nav>

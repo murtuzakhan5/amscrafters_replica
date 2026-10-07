@@ -59,12 +59,12 @@ export const Consultation = () => {
       <div className="sp-wrapper" style={{ minHeight: '100vh', paddingBottom: '100px' }}>
         
         {/* Hero Section */}
-        <div style={{ textAlign: 'center', padding: '120px 40px 60px 40px' }}>
+        <div className="consultation-hero-pad" style={{ textAlign: 'center', padding: '120px 40px 60px 40px' }}>
           <div className="sp-badge-pill-center" style={{ margin: '0 auto 24px' }}>
             <span className="sp-badge-dot"></span>
             Book a Meeting
           </div>
-          <h1 style={{ fontSize: 'clamp(40px, 6vw, 72px)', fontWeight: 800, margin: '0 0 24px 0', letterSpacing: '-2px', lineHeight: 1.1 }}>
+          <h1 style={{ fontSize: 'clamp(32px, 6vw, 72px)', fontWeight: 800, margin: '0 0 24px 0', letterSpacing: '-1.5px', lineHeight: 1.1 }}>
             Let's discuss your <span className="text-gradient">next project</span>
           </h1>
           <p style={{ fontSize: '18px', color: 'var(--muted)', maxWidth: '600px', margin: '0 auto', lineHeight: 1.6 }}>
@@ -73,11 +73,11 @@ export const Consultation = () => {
         </div>
 
         {/* Form Section */}
-        <div style={{ maxWidth: '800px', margin: '0 auto', padding: '0 40px' }}>
-          <div className="sp-hover-surface" style={{ background: 'rgba(20,20,20,0.6)', backdropFilter: 'blur(16px)', border: '1px solid rgba(255,255,255,0.05)', borderRadius: '24px', padding: '40px' }}>
+        <div className="careers-mobile-pad" style={{ maxWidth: '800px', margin: '0 auto', padding: '0 40px' }}>
+          <div className="sp-hover-surface consultation-form-box" style={{ background: 'var(--surface)', border: '1px solid var(--border)', borderRadius: '24px', padding: '40px' }}>
             <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
               
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '24px' }}>
+              <div className="consultation-form-row" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '24px' }}>
                 <div>
                   <label style={{ display: 'block', fontSize: '14px', fontWeight: 600, color: 'var(--muted)', marginBottom: '8px' }}>Full Name *</label>
                   <input 
@@ -96,7 +96,7 @@ export const Consultation = () => {
                 </div>
               </div>
 
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '24px' }}>
+              <div className="consultation-form-row" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '24px' }}>
                 <div>
                   <label style={{ display: 'block', fontSize: '14px', fontWeight: 600, color: 'var(--muted)', marginBottom: '8px' }}>Phone Number *</label>
                   <input 
@@ -115,7 +115,7 @@ export const Consultation = () => {
                 </div>
               </div>
 
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '24px' }}>
+              <div className="consultation-form-row" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '24px' }}>
                 <div>
                   <label style={{ display: 'block', fontSize: '14px', fontWeight: 600, color: 'var(--muted)', marginBottom: '8px' }}>Service Required</label>
                   <select 

@@ -3,7 +3,7 @@ import { collection, getDocs, query, orderBy } from 'firebase/firestore';
 import { db } from './firebase';
 import './components.css';
 
-export const Reviews = () => {
+export const Reviews = ({ compact = false }) => {
   const containerRef = useRef(null);
   const [scrollProgress, setScrollProgress] = useState(0);
   const [reviewsRow1, setReviewsRow1] = useState([]);
@@ -31,12 +31,12 @@ export const Reviews = () => {
   }, []);
 
   useEffect(() => {
+    if (compact) return;
     const handleScroll = () => {
       if (!containerRef.current) return;
       const rect = containerRef.current.getBoundingClientRect();
       const windowHeight = window.innerHeight;
       
-      // Calculate progress between 0 and 1 while the sticky element is pinned
       if (rect.top <= 0) {
         const totalScrollable = rect.height - windowHeight;
         const scrolled = -rect.top;
@@ -50,16 +50,18 @@ export const Reviews = () => {
     window.addEventListener('scroll', handleScroll);
     handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [compact]);
 
-  // Row 1 moves left, Row 2 moves right
-  // We use -100vw to 0vw or something proportional to progress
-  const transformRow1 = `translateX(-${scrollProgress * 50}vw)`;
-  const transformRow2 = `translateX(${(scrollProgress * 50) - 30}vw)`; // starts offset to the left, moves right
+  const transformRow1 = compact ? 'none' : `translateX(-${scrollProgress * 50}vw)`;
+  const transformRow2 = compact ? 'none' : `translateX(${(scrollProgress * 50) - 30}vw)`;
 
   return (
-    <section className="reviews-section" ref={containerRef} style={{ height: '300vh' }}>
-      <div className="reviews-sticky">
+    <section 
+      className={`reviews-section ${compact ? 'compact-reviews' : ''}`} 
+      ref={containerRef} 
+      style={{ height: compact ? 'auto' : '130vh', padding: compact ? '80px 0' : undefined }}
+    >
+      <div className="reviews-sticky" style={{ position: compact ? 'relative' : undefined, top: compact ? 0 : undefined, height: compact ? 'auto' : undefined }}>
         <div className="reviews-header">
           <span className="section-badge">
             <span className="badge-dot"></span>

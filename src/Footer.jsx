@@ -44,6 +44,7 @@ export const Footer = () => {
           <p className="footer-heading">Company</p>
           <a href="/story" className="footer-link">About Us</a>
           <a href="/portfolio" className="footer-link">Our Work</a>
+          <a href="/packages" className="footer-link">Packages</a>
           <a href="/careers" className="footer-link">Careers</a>
           <a href="/contact" className="footer-link">Contact</a>
           <a href="/team" className="footer-link">Our Team</a>

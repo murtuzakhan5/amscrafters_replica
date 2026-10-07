@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { doc, getDoc } from 'firebase/firestore';
 import { db } from './firebase';
+import { PhoneMockupShowcase } from './PhoneMockupShowcase';
 
 export const ProjectDetailPage = () => {
   const { id } = useParams();
@@ -158,20 +159,10 @@ export const ProjectDetailPage = () => {
           </div>
         )}
 
-        {/* WEB DESIGN LAYOUT (Mockups) */}
-        {project.type === 'web' && project.banner && (
-          <div style={{ marginBottom: '80px' }}>
-             <h2 style={{ fontSize: '32px', marginBottom: '32px', textAlign: 'center' }}>Final Solution</h2>
-             <div style={{ width: '100%', background: 'var(--surface)', border: '1px solid var(--border)', padding: '20px', borderRadius: '16px' }}>
-                <div style={{ width: '100%', height: '40px', background: 'var(--bg)', borderRadius: '8px 8px 0 0', borderBottom: '1px solid var(--border)', display: 'flex', alignItems: 'center', padding: '0 16px', gap: '8px' }}>
-                  <span style={{ width: '12px', height: '12px', borderRadius: '50%', background: '#ff5f56' }}></span>
-                  <span style={{ width: '12px', height: '12px', borderRadius: '50%', background: '#ffbd2e' }}></span>
-                  <span style={{ width: '12px', height: '12px', borderRadius: '50%', background: '#27c93f' }}></span>
-                </div>
-                <img src={project.banner} style={{ width: '100%', borderRadius: '0 0 8px 8px' }} />
-             </div>
-          </div>
-        )}
+        {/* WEB & GENERAL 3D SHOWCASE LAYOUT */}
+        <div style={{ marginBottom: '80px' }}>
+          <PhoneMockupShowcase project={project} />
+        </div>
 
       </div>
 
