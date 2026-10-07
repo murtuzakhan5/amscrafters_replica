@@ -77,13 +77,24 @@ const Marquee = () => {
 
   return (
     <section className="marquee-section">
-      <div className="marquee-header">
-        <h2 className="marquee-title" style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-          Say goodbye to
-          {/* Curved Arrow SVG */}
-          <img src="/arrow.png" alt="Arrow" style={{ width: '100px', height: 'auto', transform: 'rotate(15deg) translateY(10px)' }} />
-        </h2>
-      
+      <div className="marquee-header-wrapper">
+        <div className="marquee-header-left">
+          <h2 className="marquee-title" style={{ display: 'flex', alignItems: 'center', gap: '16px', flexWrap: 'wrap' }}>
+            Say goodbye to
+            <img src="/arrow.png" alt="Arrow" className="marquee-arrow" />
+          </h2>
+          <p className="marquee-subtitle">
+            Ditch outdated approaches. Step into high-converting, 3D interactive digital experiences.
+          </p>
+        </div>
+
+        {/* 3D VR Character Showcase */}
+        <div className="marquee-3d-character-card">
+          <div className="character-glow-bg"></div>
+          <div className="character-img-box">
+            <img src="/vr-character.png" alt="3D VR Character" className="vr-character-img" />
+          </div>
+        </div>
       </div>
       
       <div className="marquee-container">

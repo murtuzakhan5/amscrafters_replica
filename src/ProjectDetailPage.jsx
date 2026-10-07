@@ -70,7 +70,7 @@ export const ProjectDetailPage = () => {
       </div>
 
       {/* Project Brief Section */}
-      <div style={{ maxWidth: '1200px', margin: '80px auto', padding: '0 40px', display: 'flex', flexWrap: 'wrap', gap: '60px' }}>
+      <div className="careers-mobile-pad" style={{ maxWidth: '1200px', margin: '40px auto', padding: '0 20px', display: 'flex', flexWrap: 'wrap', gap: '36px' }}>
         <div style={{ flex: '2', minWidth: '300px' }}>
           <h2 style={{ fontSize: '32px', marginBottom: '24px' }}>Project Overview</h2>
           <p style={{ color: 'var(--muted)', fontSize: '18px', lineHeight: 1.8, whiteSpace: 'pre-wrap', marginBottom: '60px' }}>

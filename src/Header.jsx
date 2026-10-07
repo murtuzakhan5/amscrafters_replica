@@ -45,12 +45,17 @@ export const Header = () => {
   }, [location]);
 
   const serviceItems = [
-    { title: 'Mobile App', slug: 'mobile-app', desc: 'iOS & Android apps', color: '#3180b2' },
-    { title: 'CRM Solutions', slug: 'crm-solutions', desc: 'Streamline operations', color: '#1d5375' },
-    { title: 'Social Media', slug: 'social-media-marketing', desc: 'Marketing & engagement', color: '#4fa3d8' },
-    { title: 'Shopify', slug: 'shopify', desc: 'Shopify Development', color: '#276994' },
-    { title: 'E-Commerce', slug: 'ecommerce', desc: 'Custom storefronts', color: '#133a54' },
-    { title: 'SEO', slug: 'seo', desc: 'Rank higher, grow faster', color: '#3180b2' }
+    { title: '360 Marketing', slug: '360-marketing', desc: 'Campaign Strategy & Growth', color: '#3180b2' },
+    { title: 'Website Design', slug: 'website-design', desc: 'UI/UX & Web Development', color: '#1d5375' },
+    { title: 'App Development', slug: 'mobile-app', desc: 'iOS & Android Mobile Apps', color: '#4fa3d8' },
+    { title: 'Software Development', slug: 'software-development', desc: 'Custom SaaS & Platforms', color: '#276994' },
+    { title: 'SEO', slug: 'seo', desc: 'Rank higher, grow organic traffic', color: '#3180b2' },
+    { title: 'Branding', slug: 'branding', desc: 'Brand Identity & Logo Design', color: '#1d5375' },
+    { title: 'Graphic Design', slug: 'graphic-design', desc: 'Social & Print Media', color: '#4fa3d8' },
+    { title: 'Product Photography', slug: 'product-photography', desc: 'E-commerce & Lifestyle', color: '#276994' },
+    { title: 'CRM Solutions', slug: 'crm-solutions', desc: 'Streamline operations', color: '#133a54' },
+    { title: 'Shopify Development', slug: 'shopify', desc: 'Shopify Storefronts', color: '#3180b2' },
+    { title: 'E-Commerce', slug: 'ecommerce', desc: 'Custom Online Stores', color: '#1d5375' },
   ];
 
   return (
@@ -69,20 +74,20 @@ export const Header = () => {
         <div className="header-divider desktop-only"></div>
         
         <nav className={`header-nav ${mobileMenuOpen ? 'mobile-open' : 'desktop-only'}`}>
-          <Link to="/" className={`nav-link ${location.pathname === '/' ? 'active' : ''}`}>Home</Link>
-          <Link to="/story" className={`nav-link ${location.pathname === '/story' ? 'active' : ''}`}>Story</Link>
+          <Link to="/" className={`nav-link ${location.pathname === '/' ? 'active' : ''}`} onClick={() => setMobileMenuOpen(false)}>Home</Link>
+          <Link to="/story" className={`nav-link ${location.pathname === '/story' ? 'active' : ''}`} onClick={() => setMobileMenuOpen(false)}>Story</Link>
           
           <div 
             className="nav-item-dropdown" 
-            onMouseEnter={() => window.innerWidth > 768 && setServicesMenuOpen(true)}
-            onMouseLeave={() => window.innerWidth > 768 && setServicesMenuOpen(false)}
+            onMouseEnter={() => window.innerWidth > 900 && setServicesMenuOpen(true)}
+            onMouseLeave={() => window.innerWidth > 900 && setServicesMenuOpen(false)}
           >
             <button 
-              className={`nav-link ${location.pathname === '/services' || servicesMenuOpen ? 'active' : ''}`}
+              className={`nav-link ${location.pathname.startsWith('/services') || servicesMenuOpen ? 'active' : ''}`}
               onClick={() => setServicesMenuOpen(!servicesMenuOpen)}
-              style={{ background: 'none', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '4px' }}
+              style={{ background: 'none', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%', gap: '6px' }}
             >
-              Services
+              <span>Services</span>
               <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ transition: 'transform 0.2s', transform: servicesMenuOpen ? 'rotate(180deg)' : 'rotate(0)' }}><path d="m6 9 6 6 6-6"/></svg>
             </button>
             
@@ -101,8 +106,8 @@ export const Header = () => {
                     </Link>
                   ))}
                 </div>
-                <div style={{ padding: '16px', borderTop: '1px solid rgba(255,255,255,0.05)', textAlign: 'center' }}>
-                  <Link to="/services" onClick={() => { setServicesMenuOpen(false); setMobileMenuOpen(false); }} style={{ color: 'var(--fg)', textDecoration: 'none', fontSize: '14px', fontWeight: 600, display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+                <div style={{ padding: '14px 16px 4px 16px', borderTop: '1px solid rgba(255,255,255,0.08)', textAlign: 'center', marginTop: '8px' }}>
+                  <Link to="/services" onClick={() => { setServicesMenuOpen(false); setMobileMenuOpen(false); }} style={{ color: '#4fa3d8', textDecoration: 'none', fontSize: '13px', fontWeight: 600, display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
                     View All Services <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
                   </Link>
                 </div>
@@ -110,11 +115,19 @@ export const Header = () => {
             )}
           </div>
           
-          <Link to="/team" className={`nav-link ${location.pathname === '/team' ? 'active' : ''}`}>Our Team</Link>
-          <Link to="/portfolio" className={`nav-link ${location.pathname === '/portfolio' ? 'active' : ''}`}>Portfolio</Link>
-          <Link to="/packages" className={`nav-link ${location.pathname === '/packages' ? 'active' : ''}`}>Packages</Link>
-          <Link to="/careers" className={`nav-link ${location.pathname === '/careers' ? 'active' : ''}`}>Careers</Link>
-          <Link to="/contact" className={`nav-link ${location.pathname === '/contact' ? 'active' : ''}`}>Contact</Link>
+          <Link to="/team" className={`nav-link ${location.pathname === '/team' ? 'active' : ''}`} onClick={() => setMobileMenuOpen(false)}>Our Team</Link>
+          <Link to="/portfolio" className={`nav-link ${location.pathname === '/portfolio' ? 'active' : ''}`} onClick={() => setMobileMenuOpen(false)}>Portfolio</Link>
+          <Link to="/packages" className={`nav-link ${location.pathname === '/packages' ? 'active' : ''}`} onClick={() => setMobileMenuOpen(false)}>Packages</Link>
+          <Link to="/careers" className={`nav-link ${location.pathname === '/careers' ? 'active' : ''}`} onClick={() => setMobileMenuOpen(false)}>Careers</Link>
+          <Link to="/contact" className={`nav-link ${location.pathname === '/contact' ? 'active' : ''}`} onClick={() => setMobileMenuOpen(false)}>Contact</Link>
+
+          {/* Mobile CTA Button inside Menu (Hidden on Desktop) */}
+          <div className="mobile-cta-wrapper mobile-only" style={{ marginTop: '12px', width: '100%' }}>
+            <Link to="/consultation" onClick={() => setMobileMenuOpen(false)} className="btn-primary" style={{ textDecoration: 'none', width: '100%', justifyContent: 'center', height: '42px', fontSize: '14px' }}>
+              Get Consultation
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path></svg>
+            </Link>
+          </div>
         </nav>
         
         <div className="header-actions">
