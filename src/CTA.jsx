@@ -8,6 +8,7 @@ export const CTA = () => {
       <div className="hero-grid cta-grid-bg"></div>
       
       <div className="cta-content-wrapper">
+        {/* Left Column: Title, Subtitle, Stats, and Action Buttons */}
         <div className="cta-left">
           <span className="section-badge">
             <span className="badge-dot"></span>
@@ -19,9 +20,8 @@ export const CTA = () => {
           <p className="cta-desc">
             Book a free strategy call and see how AMS Crafters can take your brand to the next level.
           </p>
-        </div>
-        
-        <div className="cta-right">
+
+          {/* Stats Counters */}
           <div className="cta-stats">
             <div className="cta-stat">
               <p className="cta-stat-num"><CountUp end={50} suffix="+" /></p>
@@ -34,6 +34,7 @@ export const CTA = () => {
             </div>
           </div>
           
+          {/* Action Buttons */}
           <div className="cta-actions">
             <a href="/consultation" className="btn-primary btn-large">
               Book a Free Call
@@ -42,6 +43,14 @@ export const CTA = () => {
             <a href="/portfolio" className="btn-outline">
               View Portfolio
             </a>
+          </div>
+        </div>
+        
+        {/* Right Column: Prominent Transparent 3D VR Character Image */}
+        <div className="cta-right">
+          <div className="cta-character-wrapper">
+            <div className="cta-character-glow"></div>
+            <img src="/cta-vr-man.png" alt="AMS Crafters 3D Digital VR Experience" className="cta-character-img" />
           </div>
         </div>
       </div>

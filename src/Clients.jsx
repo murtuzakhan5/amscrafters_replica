@@ -32,22 +32,7 @@ export const Clients = () => {
                 <img 
                   src={client.logo} 
                   alt={client.name} 
-                  style={{ 
-                    maxHeight: '40px', 
-                    maxWidth: '120px', 
-                    objectFit: 'contain', 
-                    filter: 'grayscale(100%) brightness(200%)',
-                    opacity: 0.5,
-                    transition: 'all 0.3s ease'
-                  }} 
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.filter = 'grayscale(0%) brightness(100%)';
-                    e.currentTarget.style.opacity = '1';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.filter = 'grayscale(100%) brightness(200%)';
-                    e.currentTarget.style.opacity = '0.5';
-                  }}
+                  className="client-logo-img"
                 />
               </div>
             ))
