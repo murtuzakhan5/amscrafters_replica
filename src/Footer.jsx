@@ -54,14 +54,12 @@ export const Footer = () => {
           <p className="footer-heading">Contact</p>
           <div className="footer-contact-info">
             <div>
-              <p className="font-semibold text-fg">Available Mon–Sat</p>
-              <p className="text-muted">10am – 12pm PKT</p>
+              <p className="font-semibold text-fg">Available Mon–Fri</p>
+              <p className="text-muted">9am – 6pm EST</p>
             </div>
-            <a href="mailto:contact@amscrafters.io" className="footer-link">contact@amscrafters.io</a>
-            <a href="mailto:support@amscrafters.io" className="footer-link">support@amscrafters.io</a>
-            <a href="tel:+923 281838852" className="footer-link">+923 281838852</a>
-            <a href="tel:+923 198637634" className="footer-link">+923 198637634</a>
-            <p className="text-muted mt-2">Sector 10 House:R-65 North Karachi, Pakistan</p>
+            <a href="mailto:support@amscrafters.com" className="footer-link">support@amscrafters.com</a>
+            <a href="tel:+19198085526" className="footer-link">+1 (919) 808-5526</a>
+            <p className="text-muted mt-2">421 Fayetteville St, Suite 1100, Raleigh, NC 27601, USA</p>
           </div>
         </div>
       </div>

@@ -4,6 +4,7 @@ import { collection, getDocs, query, orderBy } from 'firebase/firestore';
 import { db } from './firebase';
 import { AnimatedBackground } from './AnimatedBackground';
 import './components.css';
+import { SEO } from './SEO';
 
 export const PortfolioPage = () => {
   const [activeTab, setActiveTab] = useState('All');
@@ -49,6 +50,12 @@ export const PortfolioPage = () => {
     <>
       <AnimatedBackground />
       <div className="sp-wrapper" style={{ minHeight: '100vh', paddingBottom: '100px' }}>
+        <SEO 
+          title="Case Studies & Work Portfolio | Top US Digital Agency | AMS Crafters"
+          description="Browse our portfolio of award-winning digital projects for US clients: custom software, high-converting e-commerce web applications, and full-brand identities."
+          keywords="digital portfolio USA, web design case studies United States, custom software showcase US, agency work America"
+          path="/portfolio"
+        />
       
       {/* Hero Section */}
       <div style={{ paddingTop: '160px', paddingBottom: '80px', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>

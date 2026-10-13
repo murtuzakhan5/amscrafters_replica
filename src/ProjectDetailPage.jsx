@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import { doc, getDoc } from 'firebase/firestore';
 import { db } from './firebase';
 import { PhoneMockupShowcase } from './PhoneMockupShowcase';
+import { SEO } from './SEO';
 
 export const ProjectDetailPage = () => {
   const { id } = useParams();
@@ -48,6 +49,12 @@ export const ProjectDetailPage = () => {
 
   return (
     <div className="sp-wrapper" style={{ minHeight: '100vh', paddingBottom: '100px' }}>
+      <SEO 
+        title={`${project.title || 'Case Study'} | Project Spotlight | AMS Crafters USA`}
+        description={project.description ? `${project.description.substring(0, 155)}...` : `Discover how AMS Crafters engineered ${project.title} for our client.`}
+        keywords={`${project.title}, ${project.category}, digital case study USA, web project US`}
+        path={`/portfolio/${id}`}
+      />
       
       {/* Dynamic Header Banner */}
       <div style={{ width: '100%', height: '60vh', position: 'relative', overflow: 'hidden' }}>

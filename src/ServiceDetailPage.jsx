@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
+import { SEO } from './SEO';
 
 const servicesData = {
   'mobile-app': {
@@ -97,6 +98,12 @@ export const ServiceDetailPage = () => {
 
   return (
     <div className="sp-wrapper" style={{ minHeight: '100vh', paddingBottom: '100px' }}>
+      <SEO 
+        title={`${service.title} | Top Digital Solutions USA | AMS Crafters`}
+        description={`${service.overview.substring(0, 155)}... Expert service solutions for US businesses.`}
+        keywords={`${service.title}, digital services USA, custom development US, AMS Crafters United States`}
+        path={`/services/${id}`}
+      />
       
       {/* Hero Banner Section */}
       <div style={{ width: '100%', height: '70vh', position: 'relative', overflow: 'hidden' }}>

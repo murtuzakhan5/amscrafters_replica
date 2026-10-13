@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { collection, getDocs, query, orderBy } from 'firebase/firestore';
 import { db } from './firebase';
 import { CountUp } from './CountUp';
+import { SEO } from './SEO';
 
 export const TeamPage = () => {
   const [teamMembers, setTeamMembers] = useState([]);
@@ -32,6 +33,12 @@ export const TeamPage = () => {
 
   return (
     <div className="sp-wrapper">
+      <SEO 
+        title="Meet Our World-Class Team | Designers, Engineers & Strategists USA"
+        description="Meet the passionate designers, full-stack engineers, and marketing strategists behind AMS Crafters delivering high-impact solutions for US businesses."
+        keywords="AMS Crafters team, digital designers USA, creative strategists US, software developers America"
+        path="/team"
+      />
       {/* Hero Section */}
       <div className="sp-hero">
         <div className="sp-hero-light" style={{top: '-100px', right: '-100px', width: '600px', height: '600px', background: 'radial-gradient(circle, rgba(49,128,178,0.14) 0%, rgba(79,163,216,0.06) 45%, transparent 70%)'}}></div>

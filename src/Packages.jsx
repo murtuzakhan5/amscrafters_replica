@@ -6,6 +6,7 @@ import { Reviews } from './Reviews';
 import { usePopup } from './PopupContext';
 import './contact.css';
 import './components.css';
+import { SEO } from './SEO';
 
 export const Packages = () => {
   const [activeTab, setActiveTab] = useState('webdesign');
@@ -1247,6 +1248,12 @@ export const Packages = () => {
 
   return (
     <div className="packages-page" style={{ background: 'var(--bg)', color: 'var(--fg)', minHeight: '100vh', overflowX: 'hidden' }}>
+      <SEO 
+        title="Transparent Pricing & Digital Service Packages USA | AMS Crafters"
+        description="Affordable, transparent digital agency pricing packages for US businesses. Fixed rates for website design, e-commerce, custom branding, SEO, and social marketing in the United States."
+        keywords="web design pricing USA, digital agency packages US, SEO pricing United States, ecommerce development cost America, branding packages USA"
+        path="/packages"
+      />
       
       {/* Boxed Animated Hero Banner */}
       <div className="hero-section" style={{ minHeight: '440px', paddingTop: '130px', paddingBottom: '60px' }}>

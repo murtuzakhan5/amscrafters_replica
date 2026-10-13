@@ -51,7 +51,7 @@ export const AdminLogin = () => {
               value={email}
               onChange={e => setEmail(e.target.value)}
               style={{ background: 'var(--bg)', border: '1px solid var(--border)', padding: '12px 16px', color: 'var(--fg)', borderRadius: '6px', outline: 'none' }}
-              placeholder="admin@amscrafters.io"
+              placeholder="admin@amscrafters.com"
               required
             />
           </div>

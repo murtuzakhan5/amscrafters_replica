@@ -3,6 +3,7 @@ import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 import { db } from './firebase';
 import { usePopup } from './PopupContext';
 import { AnimatedBackground } from './AnimatedBackground';
+import { SEO } from './SEO';
 
 export const Consultation = () => {
   const { showAlert } = usePopup();
@@ -57,6 +58,12 @@ export const Consultation = () => {
     <>
       <AnimatedBackground />
       <div className="sp-wrapper" style={{ minHeight: '100vh', paddingBottom: '100px' }}>
+        <SEO 
+          title="Book a Free Digital Strategy Consultation USA | AMS Crafters"
+          description="Schedule a 1-on-1 strategy session with our senior architects and marketing leads. We evaluate your current setup and roadmap growth for US companies."
+          keywords="free strategy consultation USA, digital roadmap session US, book agency call America"
+          path="/consultation"
+        />
         
         {/* Hero Section */}
         <div className="consultation-hero-pad" style={{ textAlign: 'center', padding: '120px 40px 60px 40px' }}>

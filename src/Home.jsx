@@ -6,6 +6,7 @@ import { Clients } from './Clients';
 import { Reviews } from './Reviews';
 import { CTA } from './CTA';
 import { Link } from 'react-router-dom';
+import { SEO } from './SEO';
 
 const Hero = () => {
   return (
@@ -177,6 +178,12 @@ const Services = () => {
 export const Home = () => {
   return (
     <>
+      <SEO 
+        title="AMS Crafters | Top Digital Agency & 360 Marketing Studio USA"
+        description="AMS Crafters is an award-winning US digital agency providing bespoke web design, custom software engineering, mobile apps, and 360 marketing for forward-thinking brands across the United States."
+        keywords="digital agency USA, top web design United States, custom software engineering US, 360 marketing agency USA, branding agency America, UI UX design studio US"
+        path="/"
+      />
       <Hero />
       <Marquee />
       <About />

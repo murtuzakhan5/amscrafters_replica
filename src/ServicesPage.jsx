@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './services.css';
+import { SEO } from './SEO';
 
 const servicesList = [
   { id: '01', title: '360 Marketing', tags: ['Campaign Strategy', 'Brand Storytelling'] },
@@ -53,6 +54,12 @@ export const ServicesPage = () => {
 
   return (
     <div className="sp-wrapper">
+      <SEO 
+        title="Our Services | Full-Stack Digital, Design & Marketing Solutions USA"
+        description="Explore AMS Crafters full suite of digital solutions in the USA: 360 marketing campaigns, custom website design, mobile apps, SaaS software engineering, SEO, and brand identity."
+        keywords="digital services USA, web development services United States, 360 marketing US, custom SaaS development America, mobile application development USA, branding studio US"
+        path="/services"
+      />
       
       {/* Hero Section */}
       <div className="sp-hero">

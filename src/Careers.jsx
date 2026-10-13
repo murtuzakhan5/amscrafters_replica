@@ -3,6 +3,7 @@ import { collection, getDocs, query, orderBy, addDoc, serverTimestamp } from 'fi
 import { db } from './firebase';
 import { usePopup } from './PopupContext';
 import { AnimatedBackground } from './AnimatedBackground';
+import { SEO } from './SEO';
 
 export const Careers = () => {
   const { showAlert } = usePopup();
@@ -36,6 +37,12 @@ export const Careers = () => {
     <>
       <AnimatedBackground />
       <div className="sp-wrapper" style={{ minHeight: '100vh', paddingBottom: '100px' }}>
+        <SEO 
+          title="Careers & Opportunities | Join AMS Crafters Digital Team USA"
+          description="Build your career at AMS Crafters. Explore open engineering, design, and marketing positions at our growing agency serving US businesses."
+          keywords="careers digital agency, web developer jobs USA, designer jobs US, tech jobs America"
+          path="/careers"
+        />
       
       {/* Hero Section */}
       <div style={{ textAlign: 'center', padding: '120px 40px 80px 40px' }}>

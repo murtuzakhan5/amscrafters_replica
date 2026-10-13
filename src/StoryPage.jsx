@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import './services.css';
 import { Link } from 'react-router-dom';
 import { MarqueeCrossing } from './MarqueeCrossing';
+import { SEO } from './SEO';
 
 export const StoryPage = () => {
   useEffect(() => {
@@ -10,6 +11,12 @@ export const StoryPage = () => {
 
   return (
     <div className="sp-wrapper">
+      <SEO 
+        title="Our Story & Vision | Premier US Digital Agency | AMS Crafters"
+        description="Learn how AMS Crafters became a trusted digital partner for American brands. We engineer cutting-edge web design, software platforms, and 360 marketing strategies across the United States."
+        keywords="about AMS Crafters, US digital agency story, creative agency USA, digital transformation United States, top branding team US"
+        path="/story"
+      />
       {/* Hero Section */}
       <div className="sp-hero" style={{ paddingBottom: '100px' }}>
         <div className="sp-hero-light" style={{top: '-100px', left: '-100px', width: '600px', height: '600px', background: 'radial-gradient(circle, rgba(49,128,178,0.12) 0%, rgba(79,163,216,0.05) 45%, transparent 70%)'}}></div>
