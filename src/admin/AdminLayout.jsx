@@ -34,10 +34,12 @@ export const AdminLayout = () => {
     { path: '/admin/clients', label: 'Clients', icon: '🤝' },
     { path: '/admin/reviews', label: 'Reviews', icon: '⭐' },
     { path: '/admin/team', label: 'Team Members', icon: '👥' },
-    { path: '/admin/jobs', label: 'Jobs', icon: '💼' },
-    { path: '/admin/applications', label: 'Applications', icon: '📝' },
+    { path: '/admin/services', label: 'Services & Thumbnails', icon: '⚡' },
+    { path: '/admin/leads', label: 'AI Chat Leads', icon: '🤖' },
     { path: '/admin/consultations', label: 'Consultations', icon: '🗓️' },
     { path: '/admin/inbox', label: 'Inbox', icon: '📥' },
+    { path: '/admin/jobs', label: 'Jobs Listing', icon: '💼' },
+    { path: '/admin/applications', label: 'Job Applications', icon: '📝' },
   ];
 
   return (
@@ -73,35 +75,6 @@ export const AdminLayout = () => {
               {item.label}
             </Link>
           ))}
-          {/* Careers Section */}
-          <div style={{ marginTop: '24px' }}>
-            <div style={{ 
-              color: 'var(--muted)', 
-              fontSize: '12px', 
-              textTransform: 'uppercase', 
-              letterSpacing: '0.1em', 
-              padding: '0 20px', 
-              marginBottom: '12px' 
-            }}>
-              Careers
-            </div>
-            <Link to="/admin/jobs" style={{ 
-              display: 'flex', alignItems: 'center', gap: '12px', padding: '12px 20px', 
-              color: location.pathname === '/admin/jobs' ? 'var(--fg)' : 'var(--muted)', 
-              background: location.pathname === '/admin/jobs' ? 'rgba(255,255,255,0.05)' : 'transparent',
-              textDecoration: 'none', borderRadius: '12px', transition: 'all 0.2s', margin: '0 12px 4px 12px' 
-            }}>
-              💼 Jobs Listing
-            </Link>
-            <Link to="/admin/applications" style={{ 
-              display: 'flex', alignItems: 'center', gap: '12px', padding: '12px 20px', 
-              color: location.pathname === '/admin/applications' ? 'var(--fg)' : 'var(--muted)', 
-              background: location.pathname === '/admin/applications' ? 'rgba(255,255,255,0.05)' : 'transparent',
-              textDecoration: 'none', borderRadius: '12px', transition: 'all 0.2s', margin: '0 12px' 
-            }}>
-              📄 Applications
-            </Link>
-          </div>
         </nav>
 
         <div style={{ padding: '24px', borderTop: '1px solid var(--border)' }}>

@@ -131,12 +131,12 @@ const Marquee = () => {
 
 const Services = () => {
   const services = [
-    { id: '01', name: '360 Marketing' },
-    { id: '02', name: 'Website Design' },
-    { id: '03', name: 'App Development' },
-    { id: '04', name: 'Software Development' },
-    { id: '05', name: 'SEO' },
-    { id: '06', name: 'Branding' },
+    { id: '01', name: '360 Marketing', slug: '360-marketing' },
+    { id: '02', name: 'Website Design', slug: 'website-design' },
+    { id: '03', name: 'App Development', slug: 'mobile-app' },
+    { id: '04', name: 'Software Development', slug: 'software-development' },
+    { id: '05', name: 'SEO', slug: 'seo' },
+    { id: '06', name: 'Branding', slug: 'branding' },
   ];
 
   return (
@@ -158,7 +158,7 @@ const Services = () => {
       
       <div className="services-list">
         {services.map(service => (
-          <div key={service.id} className="service-item">
+          <Link to={`/services/${service.slug}`} key={service.id} className="service-item" style={{ textDecoration: 'none', color: 'inherit' }}>
             <div className="service-hover-bg"></div>
             <span className="service-number">{service.id}</span>
             <div className="service-name-wrapper">
@@ -168,7 +168,7 @@ const Services = () => {
             <div style={{ marginLeft: 'auto', opacity: 0.5 }}>
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </section>

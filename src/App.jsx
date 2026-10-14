@@ -17,6 +17,7 @@ import { ServicesPage } from './ServicesPage';
 import { CustomCursor } from './CustomCursor';
 import { Consultation } from './Consultation';
 import { Packages } from './Packages';
+import { AIChatbot } from './AIChatbot';
 
 // Admin Imports
 import { AdminLayout } from './admin/AdminLayout';
@@ -29,6 +30,8 @@ import { AdminInbox } from './admin/AdminInbox';
 import { AdminJobs } from './admin/AdminJobs';
 import { AdminApplications } from './admin/AdminApplications';
 import { AdminConsultations } from './admin/AdminConsultations';
+import { AdminLeads } from './admin/AdminLeads';
+import { AdminServices } from './admin/AdminServices';
 
 function App() {
   const location = useLocation();
@@ -64,15 +67,18 @@ function App() {
             <Route path="clients" element={<AdminClients />} />
             <Route path="reviews" element={<AdminReviews />} />
             <Route path="team" element={<AdminTeam />} />
+            <Route path="services" element={<AdminServices />} />
             <Route path="jobs" element={<AdminJobs />} />
             <Route path="applications" element={<AdminApplications />} />
             <Route path="consultations" element={<AdminConsultations />} />
             <Route path="inbox" element={<AdminInbox />} />
+            <Route path="leads" element={<AdminLeads />} />
           </Route>
           
         </Routes>
       </main>
       {!isAdminRoute && <Footer />}
+      {!isAdminRoute && <AIChatbot />}
     </>
   );
 }

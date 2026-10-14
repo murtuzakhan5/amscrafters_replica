@@ -1,14 +1,31 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { collection, onSnapshot, query } from 'firebase/firestore';
+import { db } from './firebase';
 import { Logo } from './Logo';
+
+const DEFAULT_SERVICES = [
+  { title: '360 Marketing', slug: '360-marketing', desc: 'Campaign Strategy & Growth', color: '#3180b2', order: 1, thumbnail: '/services/360-marketing.webp' },
+  { title: 'Website Design', slug: 'website-design', desc: 'UI/UX & Web Development', color: '#1d5375', order: 2, thumbnail: '/services/website-design.webp' },
+  { title: 'App Development', slug: 'mobile-app', desc: 'iOS & Android Mobile Apps', color: '#4fa3d8', order: 3, thumbnail: '/services/mobile-app.webp' },
+  { title: 'Software Development', slug: 'software-development', desc: 'Custom SaaS & Platforms', color: '#276994', order: 4, thumbnail: '/services/software-development.webp' },
+  { title: 'SEO', slug: 'seo', desc: 'Rank higher, grow organic traffic', color: '#3180b2', order: 5, thumbnail: '/services/seo.webp' },
+  { title: 'Branding', slug: 'branding', desc: 'Brand Identity & Logo Design', color: '#1d5375', order: 6, thumbnail: '/services/branding.webp' },
+  { title: 'Graphic Design', slug: 'graphic-design', desc: 'Social & Print Media', color: '#4fa3d8', order: 7, thumbnail: '/services/graphic-design.webp' },
+  { title: 'Product Photography', slug: 'product-photography', desc: 'E-commerce & Lifestyle', color: '#276994', order: 8, thumbnail: '/services/product-photography.webp' },
+  { title: 'CRM Solutions', slug: 'crm-solutions', desc: 'Streamline operations', color: '#133a54', order: 9, thumbnail: '/services/crm-solutions.webp' },
+  { title: 'Shopify Development', slug: 'shopify', desc: 'Shopify Storefronts', color: '#3180b2', order: 10, thumbnail: '/services/shopify.webp' },
+  { title: 'E-Commerce', slug: 'ecommerce', desc: 'Custom Online Stores', color: '#1d5375', order: 11, thumbnail: '/services/ecommerce.webp' },
+];
 
 export const Header = () => {
   const [scrolled, setScrolled] = useState(false);
-  const [headerVisible, setHeaderVisible] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [servicesMenuOpen, setServicesMenuOpen] = useState(false);
+  const [serviceItems, setServiceItems] = useState(DEFAULT_SERVICES);
   const [theme, setTheme] = useState(() => localStorage.getItem('theme') || 'dark');
+  const dropdownTimeoutRef = useRef(null);
+  const dropdownRef = useRef(null);
   const location = useLocation();
 
   useEffect(() => {
@@ -20,53 +37,83 @@ export const Header = () => {
     setTheme(prev => (prev === 'dark' ? 'light' : 'dark'));
   };
 
+  // Real-time synchronization of services & custom thumbnails from Firestore
+  useEffect(() => {
+    try {
+      const q = query(collection(db, 'services'));
+      const unsubscribe = onSnapshot(q, (snapshot) => {
+        if (!snapshot.empty) {
+          const list = snapshot.docs.map(d => ({ id: d.id, ...d.data() }));
+          list.sort((a, b) => (a.order || 99) - (b.order || 99));
+          setServiceItems(list);
+        } else {
+          setServiceItems(DEFAULT_SERVICES);
+        }
+      }, (err) => {
+        console.warn("Could not listen to dynamic services from Firestore:", err);
+      });
+      return () => unsubscribe();
+    } catch (e) {
+      console.warn("Firestore listener initialization failed:", e);
+    }
+  }, []);
+
+  // Keep header stably visible always; only toggle subtle scrolled style
   useEffect(() => {
     const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      setScrolled(currentScrollY > 50);
-      
-      if (currentScrollY > lastScrollY && currentScrollY > 100) {
-        if (location.pathname === '/services') {
-          setHeaderVisible(false); // scrolling down, only hide on services page
-        }
-      } else {
-        setHeaderVisible(true); // scrolling up
-      }
-      setLastScrollY(currentScrollY);
+      setScrolled(window.scrollY > 30);
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [lastScrollY, location.pathname]);
+  }, []);
+
+  // Outside click listener to smoothly close dropdown when clicking elsewhere
+  useEffect(() => {
+    const handleOutsideClick = (e) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+        setServicesMenuOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleOutsideClick);
+    return () => document.removeEventListener('mousedown', handleOutsideClick);
+  }, []);
+
+  // Dropdown hover handling with generous grace timeout (320ms)
+  const handleDropdownEnter = () => {
+    if (dropdownTimeoutRef.current) {
+      clearTimeout(dropdownTimeoutRef.current);
+      dropdownTimeoutRef.current = null;
+    }
+    if (window.innerWidth > 900) {
+      setServicesMenuOpen(true);
+    }
+  };
+
+  const handleDropdownLeave = () => {
+    if (window.innerWidth > 900) {
+      dropdownTimeoutRef.current = setTimeout(() => {
+        setServicesMenuOpen(false);
+      }, 320); // 320ms smooth transit bridge
+    }
+  };
+
+  // Clicking Services toggles menu on both desktop and mobile
+  const handleServicesClick = (e) => {
+    e.preventDefault();
+    setServicesMenuOpen(prev => !prev);
+  };
 
   // Close menus on route change
   useEffect(() => {
+    if (dropdownTimeoutRef.current) {
+      clearTimeout(dropdownTimeoutRef.current);
+    }
     setMobileMenuOpen(false);
     setServicesMenuOpen(false);
   }, [location]);
 
-  const serviceItems = [
-    { title: '360 Marketing', slug: '360-marketing', desc: 'Campaign Strategy & Growth', color: '#3180b2' },
-    { title: 'Website Design', slug: 'website-design', desc: 'UI/UX & Web Development', color: '#1d5375' },
-    { title: 'App Development', slug: 'mobile-app', desc: 'iOS & Android Mobile Apps', color: '#4fa3d8' },
-    { title: 'Software Development', slug: 'software-development', desc: 'Custom SaaS & Platforms', color: '#276994' },
-    { title: 'SEO', slug: 'seo', desc: 'Rank higher, grow organic traffic', color: '#3180b2' },
-    { title: 'Branding', slug: 'branding', desc: 'Brand Identity & Logo Design', color: '#1d5375' },
-    { title: 'Graphic Design', slug: 'graphic-design', desc: 'Social & Print Media', color: '#4fa3d8' },
-    { title: 'Product Photography', slug: 'product-photography', desc: 'E-commerce & Lifestyle', color: '#276994' },
-    { title: 'CRM Solutions', slug: 'crm-solutions', desc: 'Streamline operations', color: '#133a54' },
-    { title: 'Shopify Development', slug: 'shopify', desc: 'Shopify Storefronts', color: '#3180b2' },
-    { title: 'E-Commerce', slug: 'ecommerce', desc: 'Custom Online Stores', color: '#1d5375' },
-  ];
-
   return (
-    <div 
-      className={`header-wrapper ${scrolled ? 'scrolled' : ''}`}
-      style={{ 
-        transform: headerVisible ? 'translateX(-50%) translateY(0)' : 'translateX(-50%) translateY(-150%)', 
-        opacity: headerVisible ? 1 : 0,
-        pointerEvents: headerVisible ? 'auto' : 'none'
-      }}
-    >
+    <div className={`header-wrapper ${scrolled ? 'scrolled' : ''}`}>
       <header className="header">
         <Link to="/" className="header-logo" style={{ paddingLeft: '8px', textDecoration: 'none' }}>
           <Logo />
@@ -78,26 +125,41 @@ export const Header = () => {
           <Link to="/story" className={`nav-link ${location.pathname === '/story' ? 'active' : ''}`} onClick={() => setMobileMenuOpen(false)}>Story</Link>
           
           <div 
+            ref={dropdownRef}
             className="nav-item-dropdown" 
-            onMouseEnter={() => window.innerWidth > 900 && setServicesMenuOpen(true)}
-            onMouseLeave={() => window.innerWidth > 900 && setServicesMenuOpen(false)}
+            onMouseEnter={handleDropdownEnter}
+            onMouseLeave={handleDropdownLeave}
           >
-            <button 
+            <Link 
+              to="/services"
               className={`nav-link ${location.pathname.startsWith('/services') || servicesMenuOpen ? 'active' : ''}`}
-              onClick={() => setServicesMenuOpen(!servicesMenuOpen)}
-              style={{ background: 'none', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%', gap: '6px' }}
+              onClick={handleServicesClick}
+              style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%', gap: '6px' }}
             >
               <span>Services</span>
               <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ transition: 'transform 0.2s', transform: servicesMenuOpen ? 'rotate(180deg)' : 'rotate(0)' }}><path d="m6 9 6 6 6-6"/></svg>
-            </button>
+            </Link>
             
             {servicesMenuOpen && (
-              <div className="mega-menu-overlay">
+              <div 
+                className="mega-menu-overlay"
+                onMouseEnter={handleDropdownEnter}
+                onMouseLeave={handleDropdownLeave}
+              >
                 <div className="mega-menu-grid">
                   {serviceItems.map((item, idx) => (
                     <Link to={`/services/${item.slug}`} key={idx} className="mega-menu-item" onClick={() => { setServicesMenuOpen(false); setMobileMenuOpen(false); }}>
                       <div className="mega-menu-thumb">
-                        <img src={`/services/${item.slug}.webp`} alt={item.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} onError={(e) => { e.target.onerror = null; e.target.style.backgroundColor = item.color; e.target.src = 'data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs='; }} />
+                        <img 
+                          src={item.thumbnail || `/services/${item.slug}.webp`} 
+                          alt={item.title} 
+                          style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
+                          onError={(e) => { 
+                            e.target.onerror = null; 
+                            e.target.style.backgroundColor = item.color || '#3180b2'; 
+                            e.target.src = 'data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs='; 
+                          }} 
+                        />
                       </div>
                       <div className="mega-menu-text">
                         <h4 className="mega-menu-title">{item.title}</h4>
